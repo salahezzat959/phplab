@@ -1,6 +1,6 @@
 <!--  Task 1 -->
 <?php
-$name =$email =$group =$details=$gender =$course ="";
+$name =$email =$group =$details=$gender =$course= "";
 $nameErro =$emailErro = $genderErro =$agreeErro ="";
 if( isset($_GET['submitForm'] )){
     if( !empty($_GET['name'])){
@@ -62,7 +62,7 @@ if( isset($_GET['submitForm'] )){
         <label for="ma">Male</label><span style="display: inline;color:red"> *  <?php echo $genderErro ?></span>
         <br>
         <label for="co">Select Courses</label>
-        <select name="course" id="co" multiple>
+        <select name="course[]" id="co" multiple="multiple">
             <option value="PHP"> PHP</option>
             <option value="Java script"> Java Script</option>
             <option value="MYSQL"> My Sql</option>
@@ -85,7 +85,10 @@ echo "Email :". $email ."<br>";
 echo "Group :". $group ."<br>";
 echo "Class details:". $details ."<br>";
 echo "Gender :". $gender ."<br>";
-echo "Your courses are :". $course . "<br>";
+echo " Your courses are : ";
+foreach($course as $value) {
+    echo   $value  ;
+}
 }
 ?>
 
